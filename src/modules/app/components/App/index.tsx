@@ -1,24 +1,23 @@
 import React from "react";
-import logo from "./logo.svg";
 import styles from "./styles.module.css";
+import Header from "../Header";
+import { Switch, Route } from "react-router-dom";
+import routes from "../../../../routes";
+import { Grid } from "@material-ui/core";
 
 const App: React.FunctionComponent = () => (
-  <div className={styles.container}>
-    <header className={styles.header}>
-      <img src={logo} className={styles.logo} alt="logo" />
-      <p>
-        Edit <code>src/App.js</code> and save to reload.
-      </p>
-      <a
-        className={styles.link}
-        href="https://reactjs.org"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Learn React
-      </a>
-    </header>
-  </div>
+  <main className={styles.container}>
+    <Header />
+    <Grid container spacing={8}>
+      <Switch>
+        {routes.map(({ path, component }, index) => (
+          <Route key={index} path={path} exact={!!path}>
+            {React.createElement(component)}
+          </Route>
+        ))}
+      </Switch>
+    </Grid>
+  </main>
 );
 
 export default App;
