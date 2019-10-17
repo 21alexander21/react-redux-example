@@ -1,7 +1,13 @@
 import { User } from "./models";
+import { Nullable } from "./utils";
 
+interface UsersState {
+  items: User[];
+  loading: boolean;
+  error: Nullable<string>;
+}
 export interface ReduxState {
-  users: User[];
+  users: UsersState;
 }
 
 export interface RouteData {

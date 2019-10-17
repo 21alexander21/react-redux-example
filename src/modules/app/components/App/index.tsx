@@ -1,14 +1,13 @@
 import React from "react";
-import styles from "./styles.module.css";
 import Header from "../Header";
 import { Switch, Route } from "react-router-dom";
 import routes from "../../../../routes";
-import { Grid } from "@material-ui/core";
+import { Container } from "@material-ui/core";
 
 const App: React.FunctionComponent = () => (
-  <main className={styles.container}>
+  <main>
     <Header />
-    <Grid container spacing={8}>
+    <Container>
       <Switch>
         {routes.map(({ path, component }, index) => (
           <Route key={index} path={path} exact={!!path}>
@@ -16,7 +15,7 @@ const App: React.FunctionComponent = () => (
           </Route>
         ))}
       </Switch>
-    </Grid>
+    </Container>
   </main>
 );
 

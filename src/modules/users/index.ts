@@ -1,1 +1,4 @@
-export { default as usersReducer } from "./reducer";
+import usersReducer from "./reducer";
+import UsersPage from "./components/UsersPage";
+
+export { usersReducer, UsersPage };
