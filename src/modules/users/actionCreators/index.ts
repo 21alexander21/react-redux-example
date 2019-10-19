@@ -5,11 +5,11 @@ export const fetchUsers = () => async (dispatch: Dispatch) => {
   dispatch({ type: UsersActionTypes.FETCH_START });
 
   try {
-    const result = await fetch(" https://randomuser.me/api?results=50");
+    const response = await fetch("https://randomuser.me/api?results=50");
 
     dispatch({
       type: UsersActionTypes.FETCH_SUCCESS,
-      payload: await result.json()
+      payload: await response.json()
     });
   } catch (error) {
     dispatch({

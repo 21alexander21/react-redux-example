@@ -21,7 +21,7 @@ const UsersPage = () => {
 
   React.useEffect(() => {
     dispatch(fetchUsers());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div>
