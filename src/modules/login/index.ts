@@ -1,3 +1,4 @@
 import LoginPage from "./components/LoginPage";
+import loginReducer from "./reducer";
 
-export { LoginPage };
+export { LoginPage, loginReducer };
