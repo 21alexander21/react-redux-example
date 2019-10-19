@@ -21,7 +21,27 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "plugin:@typescript-eslint/recommended",
+      "prettier/@typescript-eslint",
+      "plugin:prettier/recommended"
+    ],
+    "env": {
+      "browser": true
+    },
+    "rules": {
+      "react/prop-types": "off"
+    },
+    "overrides": [
+      {
+        "files": ["**/*.ts?(x)"],
+        "rules": {
+          "@typescript-eslint/explicit-function-return-type": "off"
+        }
+      }
+    ]
   },
   "browserslist": {
     "production": [
@@ -41,6 +61,10 @@
     "@types/react-dom": "^16.9.2",
     "@types/react-redux": "^7.1.4",
     "@types/react-router-dom": "^5.1.0",
-    "@types/redux": "^3.6.0"
+    "@types/redux": "^3.6.0",
+    "eslint": "^6.5.1",
+    "eslint-config-prettier": "^6.4.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "prettier": "^1.18.2"
   }
 }
