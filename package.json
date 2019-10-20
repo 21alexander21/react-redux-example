@@ -29,7 +29,8 @@
       "plugin:prettier/recommended"
     ],
     "env": {
-      "browser": true
+      "browser": true,
+      "es6": true
     },
     "rules": {
       "react/prop-types": "off"
