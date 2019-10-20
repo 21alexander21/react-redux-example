@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "@material-ui/core";
 import {
-  Link as RouterLink,
+  NavLink as RouterLink,
   LinkProps as RouterLinkProps
 } from "react-router-dom";
 import routes from "../../../../routes";
@@ -9,6 +9,8 @@ import routes from "../../../../routes";
 const Link = React.forwardRef<HTMLAnchorElement, RouterLinkProps>(
   (props, ref) => <RouterLink innerRef={ref} {...props} />
 );
+
+Link.displayName = "withForwardRef(Link)";
 
 const MainMenu = () => (
   <nav>
