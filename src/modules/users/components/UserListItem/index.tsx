@@ -24,7 +24,7 @@ const UserListItem: React.FunctionComponent<Props> = ({ userData }) => {
       <ListItemText
         primary={fullName}
         secondary={
-          <Typography component="span" variant="body2" color="textPrimary">
+          <Typography variant="body2" color="textPrimary">
             {userData.location.postcode} {userData.location.street.name}{" "}
             {userData.location.state} {userData.location.city}{" "}
             {userData.location.country}
