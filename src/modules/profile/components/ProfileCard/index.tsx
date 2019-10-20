@@ -6,8 +6,7 @@ import {
   makeStyles,
   Theme,
   createStyles,
-  Typography,
-  Button
+  Typography
 } from "@material-ui/core";
 import { useSelector } from "react-redux";
 import { ReduxState } from "../../../../types";

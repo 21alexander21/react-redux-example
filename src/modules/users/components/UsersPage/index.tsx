@@ -4,7 +4,7 @@ import { ReduxState } from "../../../../types";
 import { User } from "../../../../types/models";
 import { Nullable } from "../../../../types/utils";
 import { fetchUsers } from "../../actionCreators";
-import { List, Divider } from "@material-ui/core";
+import { List, Divider, CircularProgress } from "@material-ui/core";
 import UserListItem from "../UserListItem";
 
 const UsersPage = () => {
@@ -26,7 +26,7 @@ const UsersPage = () => {
   return (
     <div>
       <div>
-        {loading && <p>loading</p>}
+        {loading && users.length === 0 && <CircularProgress />}
         {error && <p>{error}</p>}
       </div>
       <List>
