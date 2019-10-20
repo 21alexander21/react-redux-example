@@ -22,7 +22,7 @@ const LogoutButton: React.FunctionComponent = () => {
 
   return (
     <React.Fragment>
-      <Button onClick={handleClickOpen} color="secondary">
+      <Button variant="outlined" onClick={handleClickOpen} color="secondary">
         Выйти
       </Button>
       <Dialog open={open}>

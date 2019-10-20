@@ -6,7 +6,10 @@ import {
   makeStyles,
   Theme,
   createStyles,
-  Typography
+  Typography,
+  ListItem,
+  List,
+  ListItemText
 } from "@material-ui/core";
 import { useSelector } from "react-redux";
 import { ReduxState } from "../../../../types";
@@ -35,13 +38,21 @@ const ProfileCard: React.FunctionComponent = () => {
     ({ profile }) => profile.loading
   );
 
+  const getFullAddress = (
+    location: User["location"]
+  ) => `${location.postcode}, ${location.street.number},
+  ${location.street.name}, ${location.city},
+  ${location.state}, ${location.country}`;
+
   return (
     <Container maxWidth="lg">
       <Paper className={styles.root}>
         {userData && (
           <Grid container spacing={2}>
             <Grid item xs={12}>
-              <Typography variant="h1">{getUserFullName(userData)}</Typography>
+              <Typography variant="h2" component="h1">
+                {getUserFullName(userData)}
+              </Typography>
             </Grid>
             <Grid item xs={6} md={3} lg={2}>
               <img
@@ -50,43 +61,68 @@ const ProfileCard: React.FunctionComponent = () => {
               />
             </Grid>
             <Grid item xs="auto">
-              <Typography component="p">
-                <Typography variant="subtitle1" component="span">
-                  Адрес:
-                </Typography>{" "}
-                {userData.location.postcode}, {userData.location.street.number}
-                {", "}
-                {userData.location.street.name}, {userData.location.city}
-                {", "}
-                {userData.location.state}, {userData.location.country}
-              </Typography>
-              <Typography component="p">
-                <Typography variant="subtitle1" component="span">
-                  Дата рождения:
-                </Typography>{" "}
-                {new Date(userData.dob.date).toLocaleDateString()}
-              </Typography>
-              <Typography component="p">
-                <Typography variant="subtitle1" component="span">
-                  Дата регистрации:
-                </Typography>{" "}
-                {new Date(userData.registered.date).toLocaleDateString()}
-              </Typography>
-              <Typography component="p">
-                <Typography variant="subtitle1" component="span">
-                  Телефон:
-                </Typography>{" "}
-                {userData.phone}
-              </Typography>
-              <Typography component="p">
-                <Typography variant="subtitle1" component="span">
-                  E-mail:
-                </Typography>{" "}
-                {userData.email}
-              </Typography>
-            </Grid>
-            <Grid item xs={12}>
-              <LogoutButton />
+              <List disablePadding>
+                <ListItem>
+                  <ListItemText
+                    primary="Адрес: "
+                    secondary={getFullAddress(userData.location)}
+                    secondaryTypographyProps={{
+                      component: "span",
+                      variant: "h6",
+                      color: "textPrimary"
+                    }}
+                  />
+                </ListItem>
+                <ListItem>
+                  <ListItemText
+                    primary="Дата рождения: "
+                    secondary={new Date(userData.dob.date).toLocaleDateString()}
+                    secondaryTypographyProps={{
+                      component: "span",
+                      variant: "h6",
+                      color: "textPrimary"
+                    }}
+                  />
+                </ListItem>
+                <ListItem>
+                  <ListItemText
+                    primary="Дата регистрации: "
+                    secondary={new Date(
+                      userData.registered.date
+                    ).toLocaleDateString()}
+                    secondaryTypographyProps={{
+                      component: "span",
+                      variant: "h6",
+                      color: "textPrimary"
+                    }}
+                  />
+                </ListItem>
+                <ListItem>
+                  <ListItemText
+                    primary="Телефон: "
+                    secondary={userData.phone}
+                    secondaryTypographyProps={{
+                      component: "span",
+                      variant: "h6",
+                      color: "textPrimary"
+                    }}
+                  />
+                </ListItem>
+                <ListItem>
+                  <ListItemText
+                    primary="E-mail: "
+                    secondary={userData.email}
+                    secondaryTypographyProps={{
+                      component: "span",
+                      variant: "h6",
+                      color: "textPrimary"
+                    }}
+                  />
+                </ListItem>
+                <ListItem>
+                  <LogoutButton />
+                </ListItem>
+              </List>
             </Grid>
           </Grid>
         )}
