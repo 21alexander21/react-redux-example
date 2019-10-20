@@ -68,3 +68,11 @@ export const login = (
     });
   }
 };
+
+export const logout = () => {
+  if (localStorage) {
+    localStorage.removeItem(STORAGE_KEY);
+  }
+
+  return { type: LoginActionTypes.LOGOUT };
+};

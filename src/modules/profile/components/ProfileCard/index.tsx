@@ -6,7 +6,8 @@ import {
   makeStyles,
   Theme,
   createStyles,
-  Typography
+  Typography,
+  Button
 } from "@material-ui/core";
 import { useSelector } from "react-redux";
 import { ReduxState } from "../../../../types";
@@ -14,6 +15,7 @@ import { User } from "../../../../types/models";
 import { Nullable } from "../../../../types/utils";
 import { getUserFullName } from "../../../../utils/user";
 import Loader from "../Loader";
+import { LogoutButton } from "../../../login";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -83,6 +85,9 @@ const ProfileCard: React.FunctionComponent = () => {
                 </Typography>{" "}
                 {userData.email}
               </Typography>
+            </Grid>
+            <Grid item xs={12}>
+              <LogoutButton />
             </Grid>
           </Grid>
         )}
